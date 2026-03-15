@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Non-Disclosure Agreement — Vitae Investments Portfolio | Innovation Capital</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:      #0d1e3d;
+    --navy-mid:  #162b52;
+    --gold:      #c9a850;
+    --gold-light:#e2c97a;
+    --white:     #ffffff;
+    --off-white: #f4f2ee;
+    --grey:      #8e9ab0;
+    --text:      #1a1a2e;
+    --border:    rgba(13,30,61,0.12);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Barlow', sans-serif; background: var(--off-white); color: var(--text); }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--navy); border-bottom: 2px solid var(--gold);
+    padding: 0 48px; height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo { display: flex; align-items: center; text-decoration: none; }
+  .nav-logo img { height: 36px; width: auto; display: block; }
+  .nav-back {
+    color: rgba(255,255,255,0.6); text-decoration: none;
+    font-size: 12px; font-weight: 500; letter-spacing: 1.5px;
+    text-transform: uppercase;
+    display: flex; align-items: center; gap: 8px;
+    transition: color 0.2s;
+  }
+  .nav-back:hover { color: var(--gold); }
+  .nav-back::before { content: '←'; font-size: 14px; }
+
+  /* ── HERO BAND ── */
+  .page-header {
+    background: var(--navy);
+    padding: 48px;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .page-header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(45deg, rgba(201,168,80,0.03) 0px, rgba(201,168,80,0.03) 1px, transparent 1px, transparent 60px),
+      repeating-linear-gradient(-45deg, rgba(201,168,80,0.03) 0px, rgba(201,168,80,0.03) 1px, transparent 1px, transparent 60px);
+  }
+  .page-header-inner { position: relative; z-index: 1; }
+  .page-eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-bottom: 14px;
+  }
+  .page-eyebrow-line { width: 28px; height: 1px; background: var(--gold); }
+  .page-eyebrow span { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); }
+  .page-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 44px); font-weight: 300;
+    color: var(--white); line-height: 1.2;
+  }
+  .page-title em { font-style: italic; color: var(--gold); }
+  .page-subtitle {
+    margin-top: 10px;
+    font-size: 13px; color: rgba(255,255,255,0.5);
+    letter-spacing: 1px;
+  }
+
+  /* ── LAYOUT ── */
+  .page-body {
+    max-width: 860px; margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  /* ── NDA DOCUMENT ── */
+  .nda-doc {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--gold);
+    padding: 56px;
+    margin-bottom: 40px;
+  }
+  .nda-doc-header {
+    text-align: center;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 36px;
+  }
+  .nda-doc-header img { height: 32px; margin-bottom: 20px; }
+  .nda-doc-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px; font-weight: 500; color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .nda-doc-ref {
+    font-size: 12px; color: var(--grey); letter-spacing: 1px;
+  }
+  .nda-parties {
+    background: var(--off-white);
+    border-left: 3px solid var(--gold);
+    padding: 20px 24px;
+    margin-bottom: 32px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  }
+  .party-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .party-name { font-size: 14px; font-weight: 600; color: var(--navy); }
+  .party-detail { font-size: 13px; color: var(--grey); margin-top: 2px; }
+
+  /* NDA Text */
+  .nda-text { font-size: 14px; line-height: 1.85; color: #3a4560; }
+  .nda-text h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--navy);
+    margin: 28px 0 10px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+  }
+  .nda-text h3:first-of-type { border-top: none; padding-top: 0; }
+  .nda-text p { margin-bottom: 14px; }
+  .nda-text p:last-child { margin-bottom: 0; }
+  .nda-text strong { color: var(--navy); font-weight: 600; }
+
+  /* ── SIGNING FORM ── */
+  .signing-box {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--gold);
+    padding: 48px 56px;
+  }
+  .signing-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px; font-weight: 500; color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .signing-subtitle {
+    font-size: 13px; color: var(--grey); line-height: 1.6;
+    margin-bottom: 32px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+  }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { margin-bottom: 16px; }
+  .form-group.full { grid-column: 1 / -1; }
+  .form-label {
+    display: block;
+    font-size: 10px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--navy);
+    margin-bottom: 7px;
+  }
+  .form-label span { color: var(--gold); }
+  .form-input {
+    width: 100%;
+    border: 1px solid rgba(13,30,61,0.2);
+    background: var(--white);
+    color: var(--text);
+    padding: 12px 14px;
+    font-family: 'Barlow', sans-serif; font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-input:focus { border-color: var(--gold); }
+  .form-input.invalid { border-color: #c0392b; }
+  .field-error {
+    font-size: 11px; color: #c0392b;
+    margin-top: 4px; display: none;
+  }
+  .field-error.visible { display: block; }
+
+  /* Signature field */
+  .sig-wrap {
+    position: relative;
+    border: 1px solid rgba(13,30,61,0.2);
+    background: #fafafa;
+    transition: border-color 0.2s;
+  }
+  .sig-wrap:focus-within { border-color: var(--gold); }
+  .sig-wrap.invalid { border-color: #c0392b; }
+  .sig-input {
+    width: 100%;
+    padding: 16px 14px 12px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; font-weight: 400; font-style: italic;
+    color: var(--navy);
+    border: none; background: transparent; outline: none;
+    letter-spacing: 1px;
+  }
+  .sig-input::placeholder {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; color: rgba(13,30,61,0.2);
+    font-size: 26px;
+  }
+  .sig-label-inside {
+    position: absolute; bottom: 8px; right: 12px;
+    font-size: 9px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: rgba(13,30,61,0.3);
+  }
+  .sig-underline {
+    height: 1px; background: rgba(13,30,61,0.15);
+    margin: 0 14px 10px;
+  }
+
+  /* Consent */
+  .consent-block {
+    margin: 24px 0;
+    padding: 18px 20px;
+    background: var(--off-white);
+    border-left: 3px solid var(--gold);
+    display: flex; gap: 14px; align-items: flex-start;
+  }
+  .consent-block input[type="checkbox"] {
+    margin-top: 2px; flex-shrink: 0;
+    width: 16px; height: 16px; cursor: pointer;
+    accent-color: var(--navy);
+  }
+  .consent-text {
+    font-size: 13px; color: #5a6a85; line-height: 1.6;
+  }
+  .consent-text strong { color: var(--navy); }
+
+  /* Timestamp */
+  .timestamp-row {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 24px;
+    padding: 12px 16px;
+    background: rgba(201,168,80,0.06);
+    border: 1px solid rgba(201,168,80,0.2);
+    font-size: 12px; color: var(--grey);
+  }
+  .timestamp-row strong { color: var(--navy); }
+
+  /* Submit button */
+  .btn-sign {
+    width: 100%;
+    background: var(--navy); color: var(--white);
+    padding: 16px 32px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 13px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; border: none; cursor: pointer;
+    transition: background 0.2s;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+  }
+  .btn-sign:hover { background: var(--navy-mid); }
+  .btn-sign:disabled { opacity: 0.6; cursor: not-allowed; }
+  .form-legal {
+    margin-top: 14px;
+    font-size: 11px; color: var(--grey); line-height: 1.6;
+    text-align: center;
+  }
+
+  /* ── SUCCESS STATE ── */
+  #sign-success {
+    display: none;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--gold);
+    padding: 56px;
+    text-align: center;
+  }
+  .success-tick {
+    width: 56px; height: 56px;
+    background: rgba(201,168,80,0.15);
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; color: var(--gold);
+    margin: 0 auto 24px;
+  }
+  .success-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px; font-weight: 300; color: var(--navy);
+    margin-bottom: 12px;
+  }
+  .success-title em { font-style: italic; color: var(--gold); }
+  .success-body {
+    font-size: 15px; color: #5a6a85; line-height: 1.8;
+    max-width: 480px; margin: 0 auto 32px;
+  }
+  .success-ref {
+    display: inline-block;
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    padding: 12px 24px;
+    font-size: 12px; color: var(--grey);
+    margin-bottom: 32px;
+  }
+  .success-ref strong { color: var(--navy); font-size: 14px; }
+  .success-next {
+    padding-top: 28px; border-top: 1px solid var(--border);
+    font-size: 13px; color: var(--grey);
+  }
+  .success-next strong { color: var(--navy); display: block; margin-bottom: 6px; font-size: 14px; }
+
+  /* ── ERROR ── */
+  #sign-error {
+    display: none;
+    margin-bottom: 16px;
+    background: #fdf2f2;
+    border: 1px solid #f5c6c6;
+    border-left: 3px solid #c0392b;
+    padding: 14px 18px;
+    font-size: 13px; color: #8b0000; line-height: 1.6;
+  }
+
+  /* Spinner */
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .spinner {
+    display: none; width: 16px; height: 16px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: var(--white);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+  }
+
+  /* Footer */
+  footer {
+    background: var(--navy); border-top: 2px solid rgba(201,168,80,0.3);
+    padding: 24px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: 0;
+  }
+  .footer-left { font-size: 12px; color: rgba(255,255,255,0.4); }
+  .footer-left strong { color: var(--gold); }
+  .footer-right { font-size: 11px; color: rgba(255,255,255,0.25); text-align: right; max-width: 400px; line-height: 1.5; }
+
+  @media (max-width: 720px) {
+    nav { padding: 0 20px; }
+    .page-header { padding: 36px 24px; }
+    .nda-doc, .signing-box, #sign-success { padding: 32px 24px; }
+    .form-grid { grid-template-columns: 1fr; }
+    .nda-parties { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+    .footer-right { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://innovationcapitalteam.com" class="nav-logo" target="_blank" rel="noopener">
+    <img src="https://innovationcapitalteam.com/wp-content/uploads/2025/02/cropped-IC_site_banner_blue-250x48.png" alt="Innovation Capital">
+  </a>
+  <a href="index.html" class="nav-back">Back to Portfolio</a>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="page-eyebrow">
+      <div class="page-eyebrow-line"></div>
+      <span>Confidential</span>
+      <div class="page-eyebrow-line"></div>
+    </div>
+    <h1 class="page-title">Non-Disclosure <em>Agreement</em></h1>
+    <p class="page-subtitle">Social Housing Property Portfolio — Vitae Investments Ltd · 2026</p>
+  </div>
+</div>
+
+<div class="page-body">
+
+  <!-- NDA DOCUMENT -->
+  <div class="nda-doc">
+    <div class="nda-doc-header">
+      <img src="https://innovationcapitalteam.com/wp-content/uploads/2025/02/cropped-IC_site_banner_blue-250x48.png" alt="Innovation Capital">
+      <div class="nda-doc-title">Non-Disclosure Agreement</div>
+      <div class="nda-doc-ref">Vitae Investments Ltd — Social Housing Property Portfolio Sale · 2026</div>
+    </div>
+
+    <div class="nda-parties">
+      <div>
+        <div class="party-label">Disclosing Party</div>
+        <div class="party-name">Vitae Investments Ltd</div>
+        <div class="party-detail">c/o Innovation Capital Team LLP<br>The Sussex Innovation Centre, Brighton BN1 9SB</div>
+      </div>
+      <div>
+        <div class="party-label">Receiving Party</div>
+        <div class="party-name">As identified below</div>
+        <div class="party-detail">Name, organisation, and contact details<br>to be provided upon signing</div>
+      </div>
+    </div>
+
+    <div class="nda-text">
+
+      <h3>1. Background</h3>
+      <p>Innovation Capital Team LLP is acting as exclusive transaction advisor to Vitae Investments Ltd (the <strong>"Disclosing Party"</strong>) in connection with the proposed sale of a portfolio of social housing assets (the <strong>"Transaction"</strong>). The Disclosing Party is willing to share certain confidential information with the person or entity named below (the <strong>"Receiving Party"</strong>) solely to enable the Receiving Party to evaluate whether to proceed with the Transaction.</p>
+
+      <h3>2. Confidential Information</h3>
+      <p><strong>"Confidential Information"</strong> means all information disclosed by the Disclosing Party or its advisors in connection with the Transaction, including but not limited to: financial data, property information, lease agreements, occupancy details, tenant arrangements, planning consents, valuations, business plans, and the fact that the Transaction is taking place.</p>
+      <p>Confidential Information does not include information that: (a) is or becomes publicly available other than through a breach of this Agreement; (b) was already known to the Receiving Party before disclosure; or (c) is independently developed by the Receiving Party without use of the Confidential Information.</p>
+
+      <h3>3. Obligations of the Receiving Party</h3>
+      <p>The Receiving Party agrees to: (a) keep all Confidential Information strictly confidential; (b) use it only for the purpose of evaluating the Transaction; (c) not disclose it to any third party without prior written consent, except to its own professional advisors who are bound by equivalent obligations of confidentiality; and (d) apply at least the same degree of care it applies to its own confidential information.</p>
+
+      <h3>4. No Obligation to Proceed</h3>
+      <p>Nothing in this Agreement obliges either party to proceed with the Transaction or to enter into any further agreement. The Disclosing Party reserves the right to withdraw from discussions at any time without liability.</p>
+
+      <h3>5. Return of Information</h3>
+      <p>Upon written request by the Disclosing Party, the Receiving Party shall promptly return or destroy all Confidential Information and any copies thereof, and confirm in writing that it has done so.</p>
+
+      <h3>6. Duration</h3>
+      <p>The obligations in this Agreement shall apply for a period of <strong>two (2) years</strong> from the date of signing, regardless of whether the Transaction proceeds.</p>
+
+      <h3>7. Governing Law</h3>
+      <p>This Agreement is governed by and construed in accordance with the laws of <strong>England and Wales</strong>. Any disputes arising under it shall be subject to the exclusive jurisdiction of the courts of England and Wales.</p>
+
+      <h3>8. Entire Agreement</h3>
+      <p>This Agreement constitutes the entire agreement between the parties regarding confidentiality in connection with the Transaction and supersedes any prior understandings on the same subject matter.</p>
+
+    </div>
+  </div>
+
+  <!-- SIGNING FORM -->
+  <div class="signing-box" id="signing-box">
+    <div class="signing-title">Sign this Agreement</div>
+    <p class="signing-subtitle">Please complete all fields below. Your typed full name in the signature field constitutes a legally binding electronic signature under the Electronic Communications Act 2000.</p>
+
+    <div id="sign-error"></div>
+
+    <form id="nda-form" method="POST" action="https://formspree.io/f/xojknwoy" novalidate>
+
+      <!-- Hidden field to distinguish NDA submissions from data room requests -->
+      <input type="hidden" name="_subject" value="NDA Signed — Vitae Investments Portfolio">
+      <input type="hidden" name="_replyto" id="replyto-field" value="">
+      <input type="hidden" name="form_type" value="NDA Signature">
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <textarea name="nda_agreement_text" style="display:none" readonly>NON-DISCLOSURE AGREEMENT
+Vitae Investments Ltd — Social Housing Property Portfolio Sale 2026
+
+PARTIES
+Disclosing Party: Vitae Investments Ltd, c/o Innovation Capital Team LLP, The Sussex Innovation Centre, Brighton BN1 9SB
+Receiving Party: As identified by the signatory below
+
+1. BACKGROUND
+Innovation Capital Team LLP is acting as exclusive transaction advisor to Vitae Investments Ltd (the Disclosing Party) in connection with the proposed sale of a portfolio of social housing assets (the Transaction). The Disclosing Party is willing to share certain confidential information with the person or entity named below (the Receiving Party) solely to enable the Receiving Party to evaluate whether to proceed with the Transaction.
+
+2. CONFIDENTIAL INFORMATION
+Confidential Information means all information disclosed by the Disclosing Party or its advisors in connection with the Transaction, including but not limited to: financial data, property information, lease agreements, occupancy details, tenant arrangements, planning consents, valuations, business plans, and the fact that the Transaction is taking place. Confidential Information does not include information that: (a) is or becomes publicly available other than through a breach of this Agreement; (b) was already known to the Receiving Party before disclosure; or (c) is independently developed by the Receiving Party without use of the Confidential Information.
+
+3. OBLIGATIONS OF THE RECEIVING PARTY
+The Receiving Party agrees to: (a) keep all Confidential Information strictly confidential; (b) use it only for the purpose of evaluating the Transaction; (c) not disclose it to any third party without prior written consent, except to its own professional advisors who are bound by equivalent obligations of confidentiality; and (d) apply at least the same degree of care it applies to its own confidential information.
+
+4. NO OBLIGATION TO PROCEED
+Nothing in this Agreement obliges either party to proceed with the Transaction or to enter into any further agreement. The Disclosing Party reserves the right to withdraw from discussions at any time without liability.
+
+5. RETURN OF INFORMATION
+Upon written request by the Disclosing Party, the Receiving Party shall promptly return or destroy all Confidential Information and any copies thereof, and confirm in writing that it has done so.
+
+6. DURATION
+The obligations in this Agreement shall apply for a period of two (2) years from the date of signing, regardless of whether the Transaction proceeds.
+
+7. GOVERNING LAW
+This Agreement is governed by and construed in accordance with the laws of England and Wales. Any disputes arising under it shall be subject to the exclusive jurisdiction of the courts of England and Wales.
+
+8. ENTIRE AGREEMENT
+This Agreement constitutes the entire agreement between the parties regarding confidentiality in connection with the Transaction and supersedes any prior understandings on the same subject matter.</textarea>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label" for="s-first">First Name <span>*</span></label>
+          <input class="form-input" type="text" id="s-first" name="first_name" autocomplete="given-name" placeholder="John">
+          <div class="field-error" id="err-s-first">Please enter your first name.</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="s-last">Last Name <span>*</span></label>
+          <input class="form-input" type="text" id="s-last" name="last_name" autocomplete="family-name" placeholder="Smith">
+          <div class="field-error" id="err-s-last">Please enter your last name.</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="s-org">Organisation / Fund <span>*</span></label>
+          <input class="form-input" type="text" id="s-org" name="organisation" autocomplete="organization" placeholder="Acme Capital Ltd">
+          <div class="field-error" id="err-s-org">Please enter your organisation name.</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="s-title">Job Title <span>*</span></label>
+          <input class="form-input" type="text" id="s-title" name="job_title" placeholder="Managing Director">
+          <div class="field-error" id="err-s-title">Please enter your job title.</div>
+        </div>
+        <div class="form-group full">
+          <label class="form-label" for="s-email">Email Address <span>*</span></label>
+          <input class="form-input" type="email" id="s-email" name="email" autocomplete="email" placeholder="john.smith@acmecapital.com">
+          <div class="field-error" id="err-s-email">Please enter a valid email address.</div>
+        </div>
+      </div>
+
+      <!-- Signature field -->
+      <div class="form-group" style="margin-top: 8px;">
+        <label class="form-label" for="s-sig">Electronic Signature — Type your full legal name <span>*</span></label>
+        <div class="sig-wrap" id="sig-wrap">
+          <input class="sig-input" type="text" id="s-sig" name="signature" placeholder="John Smith" autocomplete="off" spellcheck="false">
+          <div class="sig-underline"></div>
+          <div class="sig-label-inside">Electronic Signature</div>
+        </div>
+        <div class="field-error" id="err-s-sig">Please type your full name as your signature.</div>
+      </div>
+
+      <!-- Timestamp display — inline script so Cloudflare CDN cannot break it -->
+      <div class="timestamp-row" id="timestamp-row">
+        <span>📅</span>
+        <span>Date &amp; time of signing: <strong id="ts-display">—</strong></span>
+        <input type="text" name="signed_at" id="signed-at-input" readonly style="display:none;">
+        <input type="hidden" name="ip_note" value="IP address recorded by Formspree at time of submission">
+      </div>
+      <script>
+        (function() {
+          function fmtDate(d) {
+            return d.toLocaleDateString('en-GB', { weekday:'long', year:'numeric', month:'long', day:'numeric' })
+              + ' at ' + d.toLocaleTimeString('en-GB', { hour:'2-digit', minute:'2-digit', timeZoneName:'short' });
+          }
+          function stamp() {
+            var s = fmtDate(new Date());
+            var el = document.getElementById('ts-display');
+            var inp = document.getElementById('signed-at-input');
+            if (el) el.textContent = s;
+            if (inp) inp.value = s;
+          }
+          stamp();
+          setInterval(stamp, 60000);
+        })();
+      </script>
+
+      <!-- Consent checkbox -->
+      <div class="consent-block">
+        <input type="checkbox" id="s-consent" name="consent" value="agreed">
+        <label class="consent-text" for="s-consent">
+          I confirm that I have read and understood the Non-Disclosure Agreement above, that I have authority to enter into it on behalf of the organisation named, and that by typing my name above I am signing this Agreement electronically. I agree that this constitutes a binding legal signature under the <strong>Electronic Communications Act 2000</strong>.
+        </label>
+      </div>
+      <div class="field-error" id="err-s-consent" style="margin-top:-8px; margin-bottom:16px;">Please tick the box to confirm your agreement.</div>
+
+      <button type="submit" class="btn-sign" id="sign-btn">
+        <span id="sign-btn-text">Sign &amp; Submit Agreement</span>
+        <span class="spinner" id="sign-spinner"></span>
+      </button>
+      <p class="form-legal">A copy of this signed agreement will be sent to your email address and to Innovation Capital. This page uses Formspree for secure form submission.</p>
+    </form>
+  </div>
+
+  <!-- SUCCESS -->
+  <div id="sign-success">
+    <div class="success-tick">✓</div>
+    <h2 class="success-title">Agreement <em>Signed</em></h2>
+    <p class="success-body">Thank you — your signed Non-Disclosure Agreement has been submitted successfully. A confirmation has been sent to your email address and to Innovation Capital.</p>
+    <div class="success-ref">
+      Signed by: <strong id="success-name">—</strong><br>
+      <span id="success-timestamp" style="font-size:11px;">—</span>
+    </div>
+    <div class="success-next">
+      <strong>What happens next</strong>
+      Robert Clare at Innovation Capital will countersign and forward the executed agreement to your email, along with your personal data room access invitation, within one business day.<br><br>
+      Questions? <a href="mailto:robert.clare@innovationcapitalteam.com" style="color:var(--gold); text-decoration:none; font-weight:600;">robert.clare@innovationcapitalteam.com</a>
+      &nbsp;·&nbsp;
+      <a href="tel:07788428077" style="color:var(--gold); text-decoration:none; font-weight:600;">07788 428 077</a>
+    </div>
+  </div>
+
+</div><!-- /page-body -->
+
+<footer>
+  <div class="footer-left"><strong>Innovation Capital</strong> · Exclusive Advisor · Vitae Investments Portfolio 2026</div>
+  <div class="footer-right">© 2026 Innovation Capital Team LLP. This agreement is governed by the laws of England and Wales. Electronic signatures are legally binding under the Electronic Communications Act 2000.</div>
+</footer>
+
+<script>
+  // ── LIVE TIMESTAMP ─────────────────────────────
+  function formatDate(d) {
+    return d.toLocaleDateString('en-GB', { weekday:'long', year:'numeric', month:'long', day:'numeric' })
+      + ' at ' + d.toLocaleTimeString('en-GB', { hour:'2-digit', minute:'2-digit', timeZoneName:'short' });
+  }
+  function setTimestamp(d) {
+    const tsDisplay = document.getElementById('ts-display');
+    const tsInput   = document.getElementById('signed-at-input');
+    const str = formatDate(d);
+    if (tsDisplay) tsDisplay.textContent = str;
+    if (tsInput)   tsInput.value = str;
+  }
+
+  // Timestamp handled by inline script above
+
+  // ── SYNC REPLYTO WITH EMAIL ────────────────────
+  const emailInput   = document.getElementById('s-email');
+  const replytoField = document.getElementById('replyto-field');
+  if (emailInput && replytoField) {
+    emailInput.addEventListener('input', () => replytoField.value = emailInput.value.trim());
+    emailInput.addEventListener('blur',  () => replytoField.value = emailInput.value.trim());
+  }
+
+  // ── VALIDATION ─────────────────────────────────
+  const rules = [
+    { id: 's-first',   errId: 'err-s-first',   type: 'text' },
+    { id: 's-last',    errId: 'err-s-last',    type: 'text' },
+    { id: 's-org',     errId: 'err-s-org',     type: 'text' },
+    { id: 's-title',   errId: 'err-s-title',   type: 'text' },
+    { id: 's-email',   errId: 'err-s-email',   type: 'email' },
+    { id: 's-sig',     errId: 'err-s-sig',     type: 'text' },
+  ];
+
+  function validateField(rule) {
+    const el  = document.getElementById(rule.id);
+    const err = document.getElementById(rule.errId);
+    if (!el || !err) return true;
+    const val = el.value.trim();
+    let valid = val !== '';
+    if (rule.type === 'email') valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+    el.classList.toggle('invalid', !valid);
+    if (rule.id === 's-sig') document.getElementById('sig-wrap').classList.toggle('invalid', !valid);
+    err.classList.toggle('visible', !valid);
+    return valid;
+  }
+
+  rules.forEach(r => {
+    const el = document.getElementById(r.id);
+    if (el) el.addEventListener('blur', () => validateField(r));
+  });
+
+  // ── FORM SUBMIT ────────────────────────────────
+  const FORMSPREE_ID = 'xojknwoy';
+
+  document.getElementById('nda-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Update timestamp at moment of submit
+    const submitTime = new Date();
+    setTimestamp(submitTime);
+
+    // Validate fields
+    const allValid = rules.map(r => validateField(r)).every(Boolean);
+
+    // Validate checkbox
+    const consent = document.getElementById('s-consent');
+    const consentErr = document.getElementById('err-s-consent');
+    if (!consent.checked) {
+      consentErr.classList.add('visible');
+      if (allValid) consent.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else {
+      consentErr.classList.remove('visible');
+    }
+
+    if (!allValid || !consent.checked) {
+      const firstInvalid = document.querySelector('.form-input.invalid, .sig-wrap.invalid');
+      if (firstInvalid) firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    // Loading state
+    const btn = document.getElementById('sign-btn');
+    const btnText = document.getElementById('sign-btn-text');
+    const spinner = document.getElementById('sign-spinner');
+    btn.disabled = true;
+    btnText.textContent = 'Submitting…';
+    spinner.style.display = 'inline-block';
+    document.getElementById('sign-error').style.display = 'none';
+
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: 'POST',
+        body: new FormData(e.target),
+        headers: { Accept: 'application/json' }
+      });
+
+      if (res.ok) {
+        // Show success
+        const firstName = document.getElementById('s-first').value.trim();
+        const lastName  = document.getElementById('s-last').value.trim();
+        document.getElementById('success-name').textContent = `${firstName} ${lastName}`;
+        document.getElementById('success-timestamp').textContent = formatDate(submitTime);
+        document.getElementById('signing-box').style.display = 'none';
+        const successEl = document.getElementById('sign-success');
+        successEl.style.display = 'block';
+       
