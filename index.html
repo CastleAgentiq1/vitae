@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Housing Property Portfolio 2026 | Innovation Capital</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:       #0d1e3d;
+    --navy-mid:   #162b52;
+    --navy-light: #1e3a6a;
+    --gold:       #c9a850;
+    --gold-light: #e2c97a;
+    --white:      #ffffff;
+    --off-white:  #f4f2ee;
+    --grey:       #8e9ab0;
+    --text-dark:  #1a1a2e;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--white);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ───────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--navy);
+    border-bottom: 2px solid var(--gold);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px;
+    height: 64px;
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 14px;
+    text-decoration: none;
+  }
+  .nav-logo-badge {
+    background: var(--gold);
+    color: var(--navy);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 11px; letter-spacing: 2px;
+    padding: 3px 8px;
+  }
+  .nav-logo-text {
+    color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600; font-size: 15px; letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+  .nav-links {
+    display: flex; gap: 32px; list-style: none;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 13px; font-weight: 500; letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold); color: var(--navy) !important;
+    padding: 8px 20px !important;
+    font-weight: 700 !important;
+    letter-spacing: 1.5px !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+
+  /* ── HERO ──────────────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    position: relative; overflow: hidden;
+    display: flex; align-items: center;
+    padding-top: 64px;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(135deg, rgba(13,30,61,0.97) 0%, rgba(22,43,82,0.92) 50%, rgba(13,30,61,0.85) 100%);
+    z-index: 1;
+  }
+  .hero-pattern {
+    position: absolute; inset: 0;
+    background-image:
+      repeating-linear-gradient(
+        45deg,
+        rgba(201,168,80,0.03) 0px,
+        rgba(201,168,80,0.03) 1px,
+        transparent 1px,
+        transparent 60px
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        rgba(201,168,80,0.03) 0px,
+        rgba(201,168,80,0.03) 1px,
+        transparent 1px,
+        transparent 60px
+      );
+    z-index: 0;
+  }
+  .hero-gold-line {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 5px;
+    background: linear-gradient(90deg, transparent, var(--gold) 30%, var(--gold-light) 60%, transparent);
+    z-index: 2;
+  }
+  .hero-diagonal {
+    position: absolute; top: -40px; right: -60px;
+    width: 480px; height: 480px;
+    background: linear-gradient(135deg, rgba(201,168,80,0.12) 0%, transparent 60%);
+    transform: rotate(15deg);
+    z-index: 0;
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 1200px; margin: 0 auto;
+    padding: 80px 48px;
+    display: grid; grid-template-columns: 1fr 420px; gap: 80px;
+    align-items: center;
+  }
+  .hero-eyebrow {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 24px;
+  }
+  .hero-eyebrow-line {
+    width: 40px; height: 2px; background: var(--gold);
+  }
+  .hero-eyebrow span {
+    font-size: 11px; font-weight: 600; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--gold);
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 5vw, 72px);
+    font-weight: 300; line-height: 1.1;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .hero-title em {
+    font-style: italic; color: var(--gold);
+  }
+  .hero-subtitle {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px; font-weight: 500; letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 32px;
+  }
+  .hero-desc {
+    font-size: 16px; line-height: 1.8;
+    color: rgba(255,255,255,0.75);
+    max-width: 560px;
+    margin-bottom: 40px;
+  }
+  .hero-actions {
+    display: flex; gap: 16px; flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--gold); color: var(--navy);
+    padding: 14px 32px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 13px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; text-decoration: none;
+    border: none; cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-outline {
+    background: transparent; color: var(--white);
+    padding: 14px 32px;
+    font-size: 13px; font-weight: 600; letter-spacing: 2px;
+    text-transform: uppercase; text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.4); cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+    display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* Hero stats card */
+  .hero-stats {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,168,80,0.3);
+    padding: 36px;
+    backdrop-filter: blur(10px);
+  }
+  .hero-stats-title {
+    font-size: 10px; font-weight: 600; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(201,168,80,0.2);
+  }
+  .stat-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .stat-row:last-child { border-bottom: none; }
+  .stat-label {
+    font-size: 12px; color: rgba(255,255,255,0.5);
+    letter-spacing: 0.5px;
+  }
+  .stat-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px; font-weight: 500;
+    color: var(--white);
+  }
+  .stat-value span {
+    font-family: 'Barlow', sans-serif;
+    font-size: 12px; font-weight: 600;
+    color: var(--gold); margin-left: 4px;
+  }
+  .hero-tag {
+    margin-top: 20px;
+    background: rgba(201,168,80,0.15);
+    border-left: 3px solid var(--gold);
+    padding: 10px 14px;
+    font-size: 12px; color: rgba(255,255,255,0.7);
+    line-height: 1.5;
+  }
+
+  /* ── SECTION COMMON ────────────────────────── */
+  section { padding: 100px 48px; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .section-eyebrow {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 16px;
+  }
+  .section-eyebrow-line { width: 32px; height: 2px; background: var(--gold); }
+  .section-eyebrow span {
+    font-size: 10px; font-weight: 600; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--gold);
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 54px);
+    font-weight: 300; line-height: 1.15;
+    color: var(--navy);
+    margin-bottom: 20px;
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+  .section-lead {
+    font-size: 17px; line-height: 1.8;
+    color: #5a6a85; max-width: 640px;
+  }
+
+  /* ── INVESTMENT HIGHLIGHTS ─────────────────── */
+  .highlights { background: var(--off-white); }
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 60px;
+    background: rgba(201,168,80,0.2);
+  }
+  .highlight-card {
+    background: var(--white);
+    padding: 36px 28px;
+    position: relative;
+    transition: background 0.2s;
+  }
+  .highlight-card:hover { background: var(--navy); }
+  .highlight-card:hover .hc-num,
+  .highlight-card:hover .hc-label,
+  .highlight-card:hover .hc-desc { color: var(--white) !important; }
+  .highlight-card:hover .hc-num { color: var(--gold) !important; }
+  .hc-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px; font-weight: 300;
+    color: var(--navy); line-height: 1;
+    margin-bottom: 8px;
+  }
+  .hc-unit {
+    font-family: 'Barlow', sans-serif;
+    font-size: 20px; font-weight: 400; color: var(--gold);
+  }
+  .hc-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--navy);
+    margin-bottom: 10px;
+  }
+  .hc-desc {
+    font-size: 13px; line-height: 1.6; color: #6b7a8d;
+  }
+
+  /* ── INVESTMENT STRUCTURE ──────────────────── */
+  .structure { background: var(--navy); }
+  .structure .section-title { color: var(--white); }
+  .structure .section-lead { color: rgba(255,255,255,0.6); }
+  .structure-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    margin-top: 60px;
+    background: rgba(201,168,80,0.15);
+  }
+  .structure-card {
+    background: var(--navy-mid);
+    padding: 32px;
+    border-top: 2px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .structure-card:hover { border-top-color: var(--gold); }
+  .structure-icon {
+    width: 36px; height: 36px;
+    background: rgba(201,168,80,0.15);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px;
+    font-size: 16px;
+  }
+  .structure-card h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .structure-card p {
+    font-size: 14px; line-height: 1.7;
+    color: rgba(255,255,255,0.65);
+  }
+
+  /* ── PORTFOLIO ─────────────────────────────── */
+  .portfolio { background: var(--white); }
+  .portfolio-intro {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+    align-items: end; margin-bottom: 64px;
+  }
+  .portfolio-table-wrap {
+    overflow-x: auto;
+    border: 1px solid rgba(13,30,61,0.12);
+  }
+  table {
+    width: 100%; border-collapse: collapse;
+    font-size: 13px;
+  }
+  thead tr {
+    background: var(--navy);
+  }
+  thead th {
+    color: var(--gold);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 14px 16px;
+    text-align: left; white-space: nowrap;
+  }
+  tbody tr {
+    border-bottom: 1px solid rgba(13,30,61,0.07);
+    transition: background 0.15s;
+  }
+  tbody tr:hover { background: rgba(201,168,80,0.06); }
+  tbody tr:nth-child(even) { background: rgba(13,30,61,0.02); }
+  tbody tr:nth-child(even):hover { background: rgba(201,168,80,0.06); }
+  tbody td {
+    padding: 12px 16px;
+    color: var(--text-dark);
+    vertical-align: top;
+  }
+  .td-name { font-weight: 600; color: var(--navy); }
+  .td-loc { color: #6b7a8d; font-size: 12px; }
+  .td-type { font-size: 12px; }
+  .td-val { font-weight: 600; white-space: nowrap; }
+  .td-yield {
+    display: inline-block;
+    background: rgba(201,168,80,0.15);
+    color: var(--gold);
+    padding: 2px 8px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
+    border-radius: 2px;
+  }
+  .td-epc {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 11px; font-weight: 700;
+    border-radius: 2px;
+  }
+  .epc-b { background: #92d050; color: #1a1a1a; }
+  .epc-c { background: #ffff00; color: #1a1a1a; }
+  .epc-d { background: #ffc000; color: #1a1a1a; }
+  .epc-e { background: #f79646; color: #1a1a1a; }
+  .portfolio-total-row td {
+    background: var(--navy) !important;
+    color: var(--white) !important;
+    font-weight: 700;
+    font-size: 14px;
+    border: none;
+  }
+  .portfolio-total-row .td-val { color: var(--gold) !important; }
+
+  /* ── MAP CALLOUT ───────────────────────────── */
+  .map-section { background: var(--off-white); padding: 80px 48px; }
+  .locations-list {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 16px; margin-top: 40px;
+  }
+  .location-pill {
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 18px;
+    background: var(--white);
+    border: 1px solid rgba(13,30,61,0.1);
+    border-left: 3px solid var(--gold);
+  }
+  .location-dot {
+    width: 8px; height: 8px;
+    background: var(--gold);
+    border-radius: 50%; flex-shrink: 0;
+  }
+  .location-name { font-weight: 600; font-size: 13px; color: var(--navy); }
+  .location-count { font-size: 11px; color: var(--grey); }
+
+  /* ── INVESTMENT CASE ───────────────────────── */
+  .investment-case { background: var(--navy); }
+  .investment-case .section-title { color: var(--white); }
+  .investment-case .section-lead { color: rgba(255,255,255,0.6); max-width: 100%; }
+  .ic-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px; margin-top: 60px;
+  }
+  .ic-card {
+    padding: 32px;
+    border: 1px solid rgba(201,168,80,0.2);
+    position: relative;
+  }
+  .ic-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 2px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+  .ic-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 500; color: var(--white);
+    margin-bottom: 12px;
+  }
+  .ic-card p { font-size: 14px; line-height: 1.75; color: rgba(255,255,255,0.6); }
+
+  /* ── ESG ───────────────────────────────────── */
+  .esg-section { background: var(--white); }
+  .esg-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 32px; margin-top: 60px;
+  }
+  .esg-card {
+    padding: 36px 28px;
+    background: var(--off-white);
+    border-bottom: 3px solid var(--gold);
+    transition: transform 0.2s;
+  }
+  .esg-card:hover { transform: translateY(-4px); }
+  .esg-icon {
+    font-size: 28px; margin-bottom: 16px;
+  }
+  .esg-card h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--navy);
+    margin-bottom: 12px;
+  }
+  .esg-card p { font-size: 14px; line-height: 1.7; color: #5a6a85; }
+
+  /* ── TEAM ──────────────────────────────────── */
+  .team-section { background: var(--off-white); }
+  .team-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 24px; margin-top: 60px;
+  }
+  .team-card {
+    background: var(--white);
+    overflow: hidden;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .team-card:hover { border-bottom-color: var(--gold); transform: translateY(-2px); }
+  .team-avatar {
+    width: 100%; height: 180px;
+    background: var(--navy-light);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px; font-weight: 300; color: var(--gold);
+    overflow: hidden;
+  }
+  .team-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .team-info { padding: 20px; }
+  .team-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px; font-weight: 700; letter-spacing: 1px;
+    color: var(--navy); margin-bottom: 2px;
+  }
+  .team-role {
+    font-size: 11px; font-weight: 500; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .team-bio { font-size: 13px; line-height: 1.6; color: #6b7a8d; }
+
+  /* ── DATA ROOM ─────────────────────────────── */
+  .dataroom { background: var(--navy-mid); }
+  .dataroom-inner {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+  }
+  .dataroom .section-title { color: var(--white); }
+  .dataroom .section-lead { color: rgba(255,255,255,0.65); }
+  .dataroom-box {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,168,80,0.3);
+    padding: 40px;
+  }
+  .dataroom-box h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(201,168,80,0.2);
+  }
+  .dataroom-list { list-style: none; margin-bottom: 28px; }
+  .dataroom-list li {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-size: 13px; color: rgba(255,255,255,0.7);
+  }
+  .dataroom-list li::before {
+    content: '→';
+    color: var(--gold); font-size: 12px; flex-shrink: 0;
+  }
+  .form-note {
+    font-size: 12px; color: rgba(255,255,255,0.4);
+    margin-top: 12px; line-height: 1.5;
+  }
+  .form-group { margin-bottom: 14px; }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--white);
+    padding: 12px 14px;
+    font-family: 'Barlow', sans-serif; font-size: 13px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: rgba(255,255,255,0.35); }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--gold); }
+  .form-group select { appearance: none; cursor: pointer; }
+  .form-group select option { background: var(--navy); color: var(--white); }
+  .form-group textarea { resize: vertical; min-height: 80px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .field-error {
+    font-size: 11px; color: #f0a0a0;
+    margin-top: 4px; min-height: 0;
+    display: none;
+  }
+  .field-error.visible { display: block; }
+  .form-group input.invalid,
+  .form-group select.invalid { border-color: rgba(220,80,80,0.8) !important; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── CONTACT ───────────────────────────────── */
+  .contact-section { background: var(--white); padding: 80px 48px; }
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px; margin-top: 48px;
+  }
+  .contact-item h4 {
+    font-size: 10px; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .contact-item p, .contact-item a {
+    font-size: 14px; color: var(--navy);
+    text-decoration: none; line-height: 1.7;
+  }
+  .contact-item a:hover { color: var(--gold); }
+
+  /* ── FOOTER ────────────────────────────────── */
+  footer {
+    background: var(--navy);
+    border-top: 2px solid rgba(201,168,80,0.3);
+    padding: 32px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .footer-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px; font-weight: 600; letter-spacing: 3px;
+    text-transform: uppercase; color: rgba(255,255,255,0.5);
+  }
+  .footer-logo strong { color: var(--gold); }
+  .footer-note {
+    font-size: 11px; color: rgba(255,255,255,0.3);
+    line-height: 1.5; text-align: right; max-width: 440px;
+  }
+
+  /* ── BADGE / TAG HELPERS ───────────────────── */
+  .gold-tag {
+    display: inline-block;
+    background: rgba(201,168,80,0.15);
+    border: 1px solid rgba(201,168,80,0.35);
+    color: var(--gold);
+    font-size: 10px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; padding: 4px 10px;
+    margin-bottom: 8px;
+  }
+  .divider {
+    width: 64px; height: 2px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    margin: 20px 0;
+  }
+
+  /* ── SCROLL ANIMATION ──────────────────────── */
+  .fade-up {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+  .fade-up:nth-child(2) { transition-delay: 0.1s; }
+  .fade-up:nth-child(3) { transition-delay: 0.2s; }
+  .fade-up:nth-child(4) { transition-delay: 0.3s; }
+
+  /* ── RESPONSIVE ────────────────────────────── */
+  @media (max-width: 1024px) {
+    .hero-content { grid-template-columns: 1fr; gap: 48px; }
+    .hero-stats { max-width: 480px; }
+    .highlights-grid { grid-template-columns: repeat(2, 1fr); }
+    .ic-grid, .esg-grid { grid-template-columns: repeat(2, 1fr); }
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
+    .portfolio-intro { grid-template-columns: 1fr; gap: 32px; }
+    .dataroom-inner { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr 1fr; }
+    .structure-grid { grid-template-columns: 1fr; }
+    nav { padding: 0 24px; }
+    .nav-links { gap: 20px; }
+    nav .nav-links li:not(:last-child):not(:nth-last-child(2)) { display: none; }
+  }
+  @media (max-width: 768px) {
+    section { padding: 64px 24px; }
+    .highlights-grid { grid-template-columns: 1fr; }
+    .ic-grid, .esg-grid { grid-template-columns: 1fr; }
+    .team-grid { grid-template-columns: 1fr 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .locations-list { grid-template-columns: 1fr 1fr; }
+    footer { flex-direction: column; gap: 16px; text-align: center; }
+    .footer-note { text-align: center; }
+    .form-row { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://innovationcapitalteam.com" class="nav-logo" target="_blank" rel="noopener">
+    <img src="https://innovationcapitalteam.com/wp-content/uploads/2025/02/cropped-IC_site_banner_blue-250x48.png" alt="Innovation Capital" style="height:38px; width:auto; display:block;">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#investment">Investment Case</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#dataroom" class="nav-cta">Request Data Room</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-pattern"></div>
+  <div class="hero-bg"></div>
+  <div class="hero-gold-line"></div>
+  <div class="hero-diagonal"></div>
+  <div class="hero-content">
+    <div>
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span>Exclusive Investment Opportunity · 2026</span>
+      </div>
+      <h1 class="hero-title">
+        Social Housing<br><em>Property Portfolio</em>
+      </h1>
+      <p class="hero-subtitle">Managed by Castle Accommodation Ltd</p>
+      <p class="hero-desc">
+        A portfolio of 16 operationally mature freehold social housing assets 
+        across Southern England, structured for sale via share capital acquisition 
+        or individual asset transfer. Backed by long-term local authority 
+        relationships and full repairing & insuring leases.
+      </p>
+      <div class="hero-actions">
+        <a href="#portfolio" class="btn-primary">View Portfolio</a>
+        <a href="#dataroom" class="btn-outline">Request Data Room Access</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stats-title">Portfolio Summary</div>
+      <div class="stat-row">
+        <span class="stat-label">Portfolio Valuation</span>
+        <span class="stat-value">£20.34<span>M</span></span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">Number of Assets</span>
+        <span class="stat-value">16<span>properties</span></span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">Total Lettable Units</span>
+        <span class="stat-value">200+<span>beds</span></span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">Contracted Yield</span>
+        <span class="stat-value">6.0<span>%</span></span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">Lease Structure</span>
+        <span class="stat-value" style="font-size:18px">FRI<span>5–10 yr</span></span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">Counterparty</span>
+        <span class="stat-value" style="font-size:16px">Local<span>Authorities</span></span>
+      </div>
+      <div class="hero-tag">
+        ⚠ Offers invited at full market value. Sale of 100% issued share capital of Vitae Investments Ltd, or as individual assets.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HIGHLIGHTS -->
+<section class="highlights" id="overview">
+  <div class="container">
+    <div class="section-eyebrow">
+      <div class="section-eyebrow-line"></div>
+      <span>Why This Portfolio</span>
+    </div>
+    <h2 class="section-title">Built for <em>Institutional</em> Durability</h2>
+    <p class="section-lead">Assembled with a clear separation of ownership, operations, and governance — the OpCo/PropCo structure delivers simplicity for an incoming buyer regardless of investment objective.</p>
+    <div class="highlights-grid">
+      <div class="highlight-card fade-up">
+        <div class="hc-num">6<span class="hc-unit">%</span></div>
+        <div class="hc-label">Contracted Yield</div>
+        <div class="hc-desc">Rent structured to deliver 6.0% on agreed purchase price from day one under FRI lease terms.</div>
+      </div>
+      <div class="highlight-card fade-up">
+        <div class="hc-num">16<span class="hc-unit"></span></div>
+        <div class="hc-label">Freehold Assets</div>
+        <div class="hc-desc">All properties are freehold. Portfolio concentrated in high-demand coastal Sussex, with one North East asset.</div>
+      </div>
+      <div class="highlight-card fade-up">
+        <div class="hc-num">5<span class="hc-unit">–10yr</span></div>
+        <div class="hc-label">Lease Term</div>
+        <div class="hc-desc">New FRI leases granted on completion to Castle Accommodation Ltd, the established operating company.</div>
+      </div>
+      <div class="highlight-card fade-up">
+        <div class="hc-num">0<span class="hc-unit"></span></div>
+        <div class="hc-label">Key-Person Risk</div>
+        <div class="hc-desc">Systems, supplier relationships, and governance frameworks are embedded, documented, and transferable.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRUCTURE -->
+<section class="structure">
+  <div class="container">
+    <div class="section-eyebrow">
+      <div class="section-eyebrow-line"></div>
+      <span>Transaction Structure</span>
+    </div>
+    <h2 class="section-title">A Clean, <em>Passive-Yield</em> Acquisition</h2>
+    <p class="section-lead">From the owner's perspective, income is designed to be clean and consistent — one lease arrangement, no voids management, no contractor relationships, no local authority admin.</p>
+    <div class="structure-grid">
+      <div class="structure-card">
+        <div class="structure-icon">🏢</div>
+        <h3>Sale + Leaseback</h3>
+        <p>Buyer acquires the freehold portfolio. Castle Accommodation remains as operating tenant — assets transfer with income continuity and day-to-day management already in place.</p>
+      </div>
+      <div class="structure-card">
+        <div class="structure-icon">📋</div>
+        <h3>FRI Lease (Full Repairing & Insuring)</h3>
+        <p>Castle Accommodation is responsible for all repairs, upkeep and insurance obligations as set out in the lease — landlord involvement reduced to a minimum.</p>
+      </div>
+      <div class="structure-card">
+        <div class="structure-icon">💷</div>
+        <h3>All Operating Costs Covered</h3>
+        <p>Council tax, utilities, day-to-day maintenance, compliance works, and ongoing management — all covered by the tenant. Investor protected from cost inflation and operational volatility.</p>
+      </div>
+      <div class="structure-card">
+        <div class="structure-icon">🏛</div>
+        <h3>Local Authority Relationships Intact</h3>
+        <p>Existing LA procurement relationships and placement demand remain under the same operator, reducing transition risk and supporting stable occupancy throughout the lease term.</p>
+      </div>
+      <div class="structure-card">
+        <div class="structure-icon">📊</div>
+        <h3>Reporting & Inspection Rights</h3>
+        <p>Owner retains asset ownership and receives rent. Agreed reporting and inspection rights allow buyers to monitor performance and asset care without day-to-day involvement.</p>
+      </div>
+      <div class="structure-card">
+        <div class="structure-icon">⚡</div>
+        <h3>Flexible Deal Structure</h3>
+        <p>Purchase of 100% issued share capital of Vitae Investments Ltd, or vendors would consider a sale of assets in a single transaction — whichever suits the buyer's structure.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO TABLE -->
+<section class="portfolio" id="portfolio">
+  <div class="container">
+    <div class="portfolio-intro">
+      <div>
+        <div class="section-eyebrow">
+          <div class="section-eyebrow-line"></div>
+          <span>The Portfolio</span>
+        </div>
+        <h2 class="section-title">16 <em>Operationally Mature</em><br>Freehold Assets</h2>
+        <div class="divider"></div>
+        <p class="section-lead">All assets are in operational use, primarily under block-booking agreements with local authorities. Several properties carry planning consents or pending applications for further development.</p>
+      </div>
+      <div>
+        <div style="background: var(--off-white); padding: 28px; border-left: 3px solid var(--gold);">
+          <div style="font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px;">Portfolio Valuation</div>
+          <div style="font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 300; color: var(--navy); line-height: 1;">£20,340,000</div>
+          <div style="font-size: 12px; color: #8e9ab0; margin-top: 6px;">16 assets · Freeholds only · As valued 2025/26</div>
+          <div style="margin-top: 16px; font-size: 13px; color: #5a6a85; line-height: 1.6;">Properties marked <strong>*)</strong> have planning pending or consented extensions that will materially increase valuation on completion.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="portfolio-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Property</th>
+            <th>Location</th>
+            <th>Type</th>
+            <th>Units</th>
+            <th>Current Valuation</th>
+            <th>EPC</th>
+            <th>LA Agreement</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>01</td>
+            <td class="td-name">Castle Residence</td>
+            <td class="td-loc">6 Windsor Rd, Worthing BN11 2LX</td>
+            <td class="td-type">HMO + Mgr Flat</td>
+            <td>14 rooms</td>
+            <td class="td-val">£1,275,000</td>
+            <td><span class="td-epc epc-c">C</span></td>
+            <td><span class="td-yield">Block Booking</span></td>
+          </tr>
+          <tr>
+            <td>02</td>
+            <td class="td-name">Clifton Residence</td>
+            <td class="td-loc">8–10 Clifton Rd, Hastings TN35 5AJ</td>
+            <td class="td-type">HMO + Mgmt Office</td>
+            <td>17 rooms</td>
+            <td class="td-val">£1,100,000</td>
+            <td><span class="td-epc epc-c">C</span></td>
+            <td><span class="td-yield">LA Partnership</span></td>
+          </tr>
+          <tr>
+            <td>03</td>
+            <td class="td-name">South Coast Residence</td>
+            <td class="td-loc">234/234a South Coast Rd, Peacehaven BN10 8JS</td>
+            <td class="td-type">HMO + Commercial Shop</td>
+            <td>11 rooms</td>
+            <td class="td-val">£1,380,000</td>
+            <td><span class="td-epc epc-c">C</span></td>
+            <td><span class="td-yield">5-yr Block</span></td>
+          </tr>
+          <tr>
+            <td>04</td>
+            <td class="td-name">Linfield Residence</td>
+            <td class="td-loc">27 Clifton Rd, Littlehampton BN17 5TE</td>
+            <td class="td-type">HMO + 1-Bed Flat</td>
+            <td>11 rooms *</td>
+            <td class="td-val">£1,250,000 *</td>
+            <td><span class="td-epc epc-d">D</span></td>
+            <td><span class="td-yield">5-yr Block</span></td>
+          </tr>
+          <tr>
+            <td>05</td>
+            <td class="td-name">Braybrooke Residence</td>
+            <td class="td-loc">4 Braybrooke Terrace, Hastings TN34 1TD</td>
+            <td class="td-type">Block of Flats</td>
+            <td>7 flats</td>
+            <td class="td-val">£750,000</td>
+            <td><span class="td-epc epc-b">B/C</span></td>
+            <td><span class="td-yield">LA Placement</span></td>
+          </tr>
+          <tr>
+            <td>06</td>
+            <td class="td-name">Sackville Residence</td>
+            <td class="td-loc">23–31 Sackville Rd, Bexhill-on-Sea TN39 3JD</td>
+            <td class="td-type">Flats + HMO + Commercial</td>
+            <td>14 units *</td>
+            <td class="td-val">£2,300,000 *</td>
+            <td><span class="td-epc epc-c">C/D</span></td>
+            <td><span class="td-yield">LA + Commercial</span></td>
+          </tr>
+          <tr>
+            <td>07</td>
+            <td class="td-name">Cavendish Residence</td>
+            <td class="td-loc">88 Cavendish Place, Eastbourne BN21 3RR</td>
+            <td class="td-type">HMO</td>
+            <td>5 rooms</td>
+            <td class="td-val">£400,000</td>
+            <td><span class="td-epc epc-c">C</span></td>
+            <td><span class="td-yield">Block Booking</span></td>
+          </tr>
+          <tr>
+            <td>08</td>
+            <td class="td-name">Albert Residence</td>
+            <td class="td-loc">3–4 Albert Rd, Bognor Regis PO21 1NL</td>
+            <td class="td-type">HMO + 2 Flats + Mgmt</td>
+            <td>21 units</td>
+            <td class="td-val">£1,750,000</td>
+            <td><span class="td-epc epc-c">C</span></td>
+            <td><span class="td-yield">5-yr Block</span></td>
+          </tr>
+          <tr>
+            <td>09</td>
+            <td class="td-name">Marine Residence</td>
+            <td class="td-loc">7 Marine Rd, Eastbourne BN22 7AU</td>
+            <td class="td-type">HMO</td>
+            <td>8 rooms</td>
+            <td class="td-val">£725,000</td>
+            <td><span class="td-epc epc-c">C</span></td>
+            <td><span class="td-yield">Dual-LA</span></td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td class="td-name">Wolsey Residence</td>
+            <td class="td-loc">179–181 Brighton Rd, Worthing BN11 2EX</td>
+            <td class="td-type">HMO</td>
+            <td>19 rooms</td>
+            <td class="td-val">£1,700,000</td>
+            <td><span class="td-epc epc-c">C</span></td>
+            <td><span class="td-yield">5-yr Block</span></td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td class="td-name">Goffs Residence</td>
+            <td class="td-loc">34 The Goffs, Eastbourne BN21 1HD</td>
+            <td class="td-type">Adapted Rooms + Flats</td>
+            <td>16 units *</td>
+            <td class="td-val">£2,000,000 *</td>
+            <td><span class="td-epc epc-c">C</span></td>
+            <td><span class="td-yield">Block Booking</span></td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td class="td-name">Parkview Residence</td>
+            <td class="td-loc">93–95 Beach Rd, South Shields NE33 2LZ</td>
+            <td class="td-type">HMO</td>
+            <td>27 rooms</td>
+            <td class="td-val">£1,300,000</td>
+            <td><span class="td-epc epc-c">C</span></td>
+            <td><span class="td-yield">LA Contract</span></td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td class="td-name">Windlesham Residence</td>
+            <td class="td-loc">8–10 Windlesham Rd, Brighton BN1 3AG</td>
+            <td class="td-type">HMO + 4 Flats</td>
+            <td>24 units</td>
+            <td class="td-val">£2,950,000</td>
+            <td><span class="td-epc epc-e">E *</span></td>
+            <td><span class="td-yield">LA Fully Utilised</span></td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td class="td-name">College Residence</td>
+            <td class="td-loc">45 College Rd, Bexhill-on-Sea TN40 1TN</td>
+            <td class="td-type">Adapted HMO</td>
+            <td>4 rooms</td>
+            <td class="td-val">£460,000</td>
+            <td><span class="td-epc epc-c">C</span></td>
+            <td><span class="td-yield">Council-led</span></td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td class="td-name">Dunclutha Residence I</td>
+            <td class="td-loc">7 Dunclutha Rd, Hastings TN34 2JA</td>
+            <td class="td-type">Adapted HMO + Mgmt</td>
+            <td>5 rooms *</td>
+            <td class="td-val">£500,000 *</td>
+            <td><span class="td-epc epc-c">C</span></td>
+            <td><span class="td-yield">Block Booking</span></td>
+          </tr>
+          <tr>
+            <td>16</td>
+            <td class="td-name">Dunclutha Residence II</td>
+            <td class="td-loc">24 Dunclutha Rd, Hastings TN34 2JA</td>
+            <td class="td-type">Adapted HMO</td>
+            <td>5 rooms *</td>
+            <td class="td-val">£500,000 *</td>
+            <td><span class="td-epc epc-c">C</span></td>
+            <td><span class="td-yield">Block Booking</span></td>
+          </tr>
+          <tr class="portfolio-total-row">
+            <td colspan="5"><strong>PORTFOLIO TOTAL — 16 FREEHOLD ASSETS</strong></td>
+            <td class="td-val"><strong>£20,340,000</strong></td>
+            <td colspan="2"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top: 12px; font-size: 11px; color: #8e9ab0; line-height: 1.5;">*) Properties with planning pending or recently consented extensions. Valuations reflect current consented use; further upside available on planning conversion. Windlesham EPC upgrade is subject to planned works.</p>
+  </div>
+</section>
+
+<!-- LOCATIONS -->
+<section class="map-section">
+  <div class="container">
+    <div class="section-eyebrow">
+      <div class="section-eyebrow-line"></div>
+      <span>Geographic Spread</span>
+    </div>
+    <h2 class="section-title" style="color: var(--navy);">Primarily <em>Coastal Sussex</em>, with Strategic North East Presence</h2>
+    <div class="locations-list">
+      <div class="location-pill">
+        <div class="location-dot"></div>
+        <div>
+          <div class="location-name">Worthing</div>
+          <div class="location-count">2 properties · 33 units</div>
+        </div>
+      </div>
+      <div class="location-pill">
+        <div class="location-dot"></div>
+        <div>
+          <div class="location-name">Hastings</div>
+          <div class="location-count">4 properties · 33 units</div>
+        </div>
+      </div>
+      <div class="location-pill">
+        <div class="location-dot"></div>
+        <div>
+          <div class="location-name">Eastbourne</div>
+          <div class="location-count">4 properties · 45 units</div>
+        </div>
+      </div>
+      <div class="location-pill">
+        <div class="location-dot"></div>
+        <div>
+          <div class="location-name">Brighton</div>
+          <div class="location-count">1 property · 24 units</div>
+        </div>
+      </div>
+      <div class="location-pill">
+        <div class="location-dot"></div>
+        <div>
+          <div class="location-name">Bexhill-on-Sea</div>
+          <div class="location-count">2 properties · 18 units</div>
+        </div>
+      </div>
+      <div class="location-pill">
+        <div class="location-dot"></div>
+        <div>
+          <div class="location-name">Bognor Regis</div>
+          <div class="location-count">1 property · 21 units</div>
+        </div>
+      </div>
+      <div class="location-pill">
+        <div class="location-dot"></div>
+        <div>
+          <div class="location-name">Littlehampton</div>
+          <div class="location-count">1 property · 11 units</div>
+        </div>
+      </div>
+      <div class="location-pill">
+        <div class="location-dot"></div>
+        <div>
+          <div class="location-name">Peacehaven</div>
+          <div class="location-count">1 property · 11 units</div>
+        </div>
+      </div>
+      <div class="location-pill">
+        <div class="location-dot"></div>
+        <div>
+          <div class="location-name">South Shields</div>
+          <div class="location-count">1 property · 27 units</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INVESTMENT CASE -->
+<section class="investment-case" id="investment">
+  <div class="container">
+    <div class="section-eyebrow">
+      <div class="section-eyebrow-line"></div>
+      <span>The Investment Case</span>
+    </div>
+    <h2 class="section-title">Social Housing: A <em>Structurally Supported</em> Asset Class</h2>
+    <p class="section-lead" style="margin-bottom: 0;">Demand is not cyclical, discretionary, or sentiment-driven — it is anchored in long-term demographic trends, chronic housing undersupply, and statutory obligations placed on local authorities. In effect, the end customer is not an individual household, but the public sector itself.</p>
+    <div class="ic-grid">
+      <div class="ic-card">
+        <h3>Defensive Income</h3>
+        <p>Rental flows are supported directly or indirectly by local authorities, government-backed funding, or regulated care frameworks. This significantly reduces credit risk versus conventional residential or commercial tenants and materially lowers volatility through economic downturns.</p>
+      </div>
+      <div class="ic-card">
+        <h3>Inflation Resilience</h3>
+        <p>Rental frameworks, funding structures, and long-term agreements often incorporate indexation or periodic review mechanisms that protect real returns over time. Combined with long average tenancy durations and low void rates, this results in predictable, compounding cash flows.</p>
+      </div>
+      <div class="ic-card">
+        <h3>Genuine ESG Alignment</h3>
+        <p>Capital deployed here directly increases the supply and quality of housing for vulnerable individuals, reduces pressure on temporary accommodation and emergency services, and supports local authorities in meeting their statutory duties. Social value is measurable and inseparable from financial performance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESG -->
+<section class="esg-section">
+  <div class="container">
+    <div class="section-eyebrow">
+      <div class="section-eyebrow-line"></div>
+      <span>ESG &amp; Social Responsibility</span>
+    </div>
+    <h2 class="section-title">Impact <em>Embedded</em> in Every Asset</h2>
+    <p class="section-lead">Our ESG approach is practical and measurable: safer homes, compliant refurbishment, and professional management — with social responsibility embedded in day-to-day decisions, not bolted on.</p>
+    <div class="esg-grid">
+      <div class="esg-card">
+        <div class="esg-icon">♿</div>
+        <h3>Disability Adaptations</h3>
+        <p>A significant share of the portfolio is adapted for residents with mobility needs — wider doorways, step-free access, adapted bathrooms and kitchens, and modern assistive features. This forms part of a long-term strategy to create safe, inclusive homes for everyone.</p>
+      </div>
+      <div class="esg-card">
+        <div class="esg-icon">☀️</div>
+        <h3>Solar Power &amp; Energy Efficiency</h3>
+        <p>Solar panels are installed across multiple assets to improve energy efficiency and reduce operating costs. Solar is increasingly integrated into refurbishment programmes and paired with sensor-controlled lighting and power management to maximise savings.</p>
+      </div>
+      <div class="esg-card">
+        <div class="esg-icon">🏠</div>
+        <h3>Insulation &amp; Building Fabric</h3>
+        <p>Walls, roofs, and windows are upgraded across the portfolio to reduce heat loss and lower ongoing energy costs. This work modernises older properties and delivers a healthier, more consistent indoor climate for residents year-round.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team-section" id="team">
+  <div class="container">
+    <div class="section-eyebrow">
+      <div class="section-eyebrow-line"></div>
+      <span>The Management Team — Castle Accommodation Ltd</span>
+    </div>
+    <h2 class="section-title">Experienced, <em>Hands-On</em> Leadership</h2>
+    <p class="section-lead">A seasoned team with deep experience across property development, residential operations, finance, and public-sector engagement. Social responsibility is embedded in day-to-day decisions.</p>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar">MR</div>
+        <div class="team-info">
+          <div class="team-name">Marisa McGreevy-Rose</div>
+          <div class="team-role">Managing Director</div>
+          <div class="team-bio">Joined Castle Accommodation in 2025, bringing extensive experience from the public sector as an award-winning service provider and in county council governance — giving deep insight into local authority priorities.</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">AG</div>
+        <div class="team-info">
+          <div class="team-name">Aksana Green</div>
+          <div class="team-role">Director — Property Acquisition &amp; Development</div>
+          <div class="team-bio">Turns buildings into homes with purpose. Focuses on creating high-quality, thoughtfully designed accommodation for those in housing need, working closely with partners and OT teams.</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">RC</div>
+        <div class="team-info">
+          <div class="team-name">Rob Clare</div>
+          <div class="team-role">CFO &amp; Strategic Advisor</div>
+          <div class="team-bio">Chartered Banker (MCIBs; ACIB) with 40 years' commercial experience. Holds 8 executive director and 3 non-executive director posts across banking, technology, manufacturing, and corporate finance.</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">MS</div>
+        <div class="team-info">
+          <div class="team-name">Magnus Strøm</div>
+          <div class="team-role">Director — Investment &amp; Finance</div>
+          <div class="team-bio">Oversees investment strategies, financial planning, and property acquisitions. Focus is on expanding the portfolio whilst ensuring every investment aligns with the company's mission to provide quality housing.</div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 40px; padding: 28px 32px; background: var(--white); border-left: 3px solid var(--gold); display: flex; gap: 20px; align-items: center;">
+      <div style="flex-shrink: 0; font-family: 'Cormorant Garamond', serif; font-size: 48px; color: var(--gold); line-height: 1;">"</div>
+      <div>
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 20px; font-style: italic; color: var(--navy); line-height: 1.5; margin-bottom: 8px;">The business is built around a clear social purpose. Social responsibility isn't treated as a slogan — it is embedded in day-to-day decisions, shaping how assets are upgraded, how residents are supported, and how long-term partnerships with local authorities are strengthened.</div>
+        <div style="font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--grey);">Castle Accommodation Ltd — Management Statement</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DATA ROOM -->
+<section class="dataroom" id="dataroom">
+  <div class="container">
+    <div class="dataroom-inner">
+      <div>
+        <div class="section-eyebrow">
+          <div class="section-eyebrow-line"></div>
+          <span>Investor Data Room</span>
+        </div>
+        <h2 class="section-title">Request <em>Confidential</em> Access</h2>
+        <p class="section-lead">Detailed property-level information including full financial data, lease documentation, planning consents, compliance certificates, and asset-level financial models are available to serious, qualified purchasers via a secure data room.</p>
+        <div style="margin-top: 32px;">
+          <div class="dataroom-box" style="max-width: 420px;">
+            <h3>Data Room Contains</h3>
+            <ul class="dataroom-list">
+              <li>Individual property information</li>
+              <li>Planning consents &amp; pending applications</li>
+              <li>HMO licences &amp; compliance certificates</li>
+              <li>EPC certificates</li>
+            </ul>
+            <div style="font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.5;">Access is provided under NDA to approved purchasers only. Please complete the request form and a member of the Innovation Capital team will be in touch within one business day.</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="dataroom-box">
+          <h3>Request Data Room Access</h3>
+
+          <!-- SUCCESS STATE (hidden until submission) -->
+          <div id="form-success" style="display:none; padding: 8px 0;">
+            <div style="display:flex; align-items:center; gap:14px; margin-bottom:24px;">
+              <div style="width:40px; height:40px; background:rgba(201,168,80,0.2); border:1px solid var(--gold); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:18px; color:var(--gold);">&#10003;</div>
+              <div style="font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:500; color:var(--white); line-height:1.2;">Request Received</div>
+            </div>
+
+            <div style="border-top:1px solid rgba(201,168,80,0.2); padding-top:24px; margin-bottom:24px;">
+              <div style="font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:16px;">What happens next</div>
+              <div style="display:flex; flex-direction:column; gap:0;">
+
+                <div style="display:flex; gap:16px; padding-bottom:20px;">
+                  <div style="display:flex; flex-direction:column; align-items:center; flex-shrink:0;">
+                    <div style="width:28px; height:28px; background:var(--gold); color:var(--navy); font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center; border-radius:50%;">1</div>
+                    <div style="width:1px; flex:1; background:rgba(201,168,80,0.25); margin-top:6px; min-height:24px;"></div>
+                  </div>
+                  <div style="padding-top:4px;">
+                    <div style="font-size:13px; font-weight:600; color:var(--white); margin-bottom:4px;">Request reviewed</div>
+                    <div style="font-size:13px; color:rgba(255,255,255,0.55); line-height:1.6;">Robert Clare at Innovation Capital will review your submission and verify your details — typically within one business day.</div>
+                  </div>
+                </div>
+
+                <div style="display:flex; gap:16px; padding-bottom:20px;">
+                  <div style="display:flex; flex-direction:column; align-items:center; flex-shrink:0;">
+                    <div style="width:28px; height:28px; background:var(--gold); color:var(--navy); font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center; border-radius:50%;">2</div>
+                    <div style="width:1px; flex:1; background:rgba(201,168,80,0.25); margin-top:6px; min-height:24px;"></div>
+                  </div>
+                  <div style="padding-top:4px;">
+                    <div style="font-size:13px; font-weight:600; color:var(--white); margin-bottom:4px;">NDA issued</div>
+                    <div style="font-size:13px; color:rgba(255,255,255,0.55); line-height:1.6;">A short non-disclosure agreement will be sent to your email address for electronic signature before access is granted.</div>
+                  </div>
+                </div>
+
+                <div style="display:flex; gap:16px;">
+                  <div style="display:flex; flex-direction:column; align-items:center; flex-shrink:0;">
+                    <div style="width:28px; height:28px; background:var(--gold); color:var(--navy); font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center; border-radius:50%;">3</div>
+                  </div>
+                  <div style="padding-top:4px;">
+                    <div style="font-size:13px; font-weight:600; color:var(--white); margin-bottom:4px;">Data room access granted</div>
+                    <div style="font-size:13px; color:rgba(255,255,255,0.55); line-height:1.6;">Once the NDA is countersigned, you will receive a personal Dropbox invitation to the secure data room directly to your email address. Access is individual and audited.</div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div style="background:rgba(201,168,80,0.08); border:1px solid rgba(201,168,80,0.2); padding:16px 18px;">
+              <div style="font-size:12px; color:rgba(255,255,255,0.5); line-height:1.7;">
+                Questions in the meantime? Contact Robert Clare directly:<br>
+                <a href="/cdn-cgi/l/email-protection#34465b565146401a5758554651745d5a5a5b4255405d5b5a5755445d405558405155591a575b59"><span class="__cf_email__" data-cfemail="33415c515641471d505f524156735a5d5d5c4552475a5c5d5052435a47525f4756525e1d505c5e">[email&#160;protected]</span></a>
+                &nbsp;&middot;&nbsp;
+                <a href="tel:07788428077" style="color:var(--gold); text-decoration:none; font-weight:600;">07788 428 077</a>
+              </div>
+            </div>
+          </div>
+
+                    <!-- ERROR STATE (hidden until error) -->
+          <div id="form-error" style="display:none; background: rgba(200,60,60,0.15); border: 1px solid rgba(200,60,60,0.4); padding: 14px 16px; margin-bottom: 16px;">
+            <div style="font-size: 13px; color: #f0a0a0; line-height: 1.6;">
+              Something went wrong submitting your request. Please try again, or email directly:<br>
+              <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="61130e030413154f020d00130421080f0f0e170015080e0f0200110815000d1504000c4f020e0c">[email&#160;protected]</a></strong>
+            </div>
+          </div>
+
+          <!-- THE FORM -->
+          <!-- ⚠ SETUP: Replace YOUR_FORM_ID below with the ID from your Formspree dashboard (formspree.io) -->
+          <form id="dataroom-form" method="POST" action="https://formspree.io/f/xreyakqp" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <input type="text" name="first_name" id="f-first" placeholder="First name *" autocomplete="given-name">
+                <div class="field-error" id="err-first"></div>
+              </div>
+              <div class="form-group">
+                <input type="text" name="last_name" id="f-last" placeholder="Last name *" autocomplete="family-name">
+                <div class="field-error" id="err-last"></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" id="f-email" placeholder="Email address *" autocomplete="email">
+              <div class="field-error" id="err-email"></div>
+            </div>
+            <div class="form-group">
+              <input type="tel" name="phone" placeholder="Phone number" autocomplete="tel">
+            </div>
+            <div class="form-group">
+              <input type="text" name="organisation" id="f-org" placeholder="Organisation / Fund name *" autocomplete="organization">
+              <div class="field-error" id="err-org"></div>
+            </div>
+            <div class="form-group">
+              <select name="investor_type" id="f-type">
+                <option value="" disabled selected>Investor type *</option>
+                <option>Institutional Investor / Fund</option>
+                <option>Private Equity / Family Office</option>
+                <option>Property Company / REIT</option>
+                <option>High Net Worth Individual</option>
+                <option>Social Housing Provider</option>
+                <option>Other</option>
+              </select>
+              <div class="field-error" id="err-type"></div>
+            </div>
+            <div class="form-group">
+              <select name="interest_in" id="f-interest">
+                <option value="" disabled selected>Interest in *</option>
+                <option>Full Portfolio (Share Capital Acquisition)</option>
+                <option>Full Portfolio (Asset Sale)</option>
+                <option>Selected Assets Only</option>
+                <option>Not yet decided</option>
+              </select>
+              <div class="field-error" id="err-interest"></div>
+            </div>
+            <div class="form-group">
+              <textarea name="message" placeholder="Brief note on your investment mandate or interest (optional)"></textarea>
+            </div>
+
+            <!-- Hidden honeypot field to block bots -->
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+            <button type="submit" id="submit-btn" class="btn-primary" style="width:100%; border:none; cursor:pointer; font-size:13px; display:flex; align-items:center; justify-content:center; gap:10px;">
+              <span id="btn-text">Submit Access Request</span>
+              <span id="btn-spinner" style="display:none; width:16px; height:16px; border:2px solid rgba(13,30,61,0.3); border-top-color:var(--navy); border-radius:50%; animation: spin 0.7s linear infinite;"></span>
+            </button>
+            <div class="form-note">By submitting this form you agree to receive correspondence regarding this opportunity from Innovation Capital Team LLP. All information provided will be treated in strict confidence.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="section-eyebrow">
+      <div class="section-eyebrow-line"></div>
+      <span>Transaction Enquiries</span>
+    </div>
+    <h2 class="section-title" style="color: var(--navy);">Get in <em>Touch</em></h2>
+    <p style="font-size: 16px; color: #5a6a85; max-width: 560px; line-height: 1.7;">All enquiries regarding this portfolio should be directed to Innovation Capital, who are exclusively handling this transaction on behalf of the vendors.</p>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <h4>Transaction Advisor</h4>
+        <p>Robert Clare<br>Innovation Capital Team LLP</p>
+      </div>
+      <div class="contact-item">
+        <h4>Contact</h4>
+        <p>
+          <a href="/cdn-cgi/l/email-protection#3a4855585f484e1459565b485f7a535454554c5b4e535554595b4a534e5b564e5f5b5714595557"><span class="__cf_email__" data-cfemail="6a1805080f181e4409060b180f2a030404051c0b1e030504090b1a031e0b061e0f0b0744090507">[email&#160;protected]</span></a><br>
+          <a href="tel:01273704487">01273 704 487</a><br>
+          <a href="tel:07788428077">07788 428 077</a>
+        </p>
+      </div>
+      <div class="contact-item">
+        <h4>Office Address</h4>
+        <p>
+          The Sussex Innovation Centre<br>
+          Science Park Square, Falmer<br>
+          Brighton, BN1 9SB<br>
+          <a href="https://innovationcapitalteam.com" target="_blank">innovationcapitalteam.com</a>
+        </p>
+      </div>
+    </div>
+    <div style="margin-top: 48px; padding: 24px 28px; background: rgba(201,168,80,0.08); border: 1px solid rgba(201,168,80,0.25); border-left: 3px solid var(--gold);">
+      <p style="font-size: 12px; color: #8e9ab0; line-height: 1.7;">
+        <strong style="color: var(--navy);">Important Notice:</strong> This website is provided for information purposes only and does not constitute an offer or solicitation to buy or sell securities or any interest in real property. The information contained herein is believed to be correct but is not warranted. Prospective purchasers should conduct their own due diligence and seek independent legal, financial, and tax advice before entering into any transaction. Innovation Capital Team LLP acts as exclusive transaction advisor to Vitae Investments Ltd and Castle Accommodation Ltd in connection with this opportunity.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <strong>Innovation Capital</strong> &nbsp;·&nbsp; Exclusive Advisor &nbsp;·&nbsp; Vitae Investments Portfolio 2026
+  </div>
+  <div class="footer-note">
+    © 2026 Innovation Capital Team LLP. All rights reserved. This document and the information contained herein is confidential and intended solely for the use of the recipient. Unauthorised disclosure or distribution is prohibited.
+  </div>
+</footer>
+
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // ── SCROLL FADE ─────────────────────────────────────────
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // ── NAV HIGHLIGHT ON SCROLL ──────────────────────────────
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
+    });
+  });
+
+  // ── FORMSPREE FORM SUBMISSION ────────────────────────────
+  // ⚠ SETUP — two steps:
+  //   1. Go to https://formspree.io → sign up → "New Form" → name it "Vitae Data Room"
+  //   2. Copy the Form ID (looks like: xpwzabcd) and paste it below
+  const FORMSPREE_ID = 'xreyakqp';
+
+  const form       = document.getElementById('dataroom-form');
+  const btnText    = document.getElementById('btn-text');
+  const btnSpinner = document.getElementById('btn-spinner');
+  const submitBtn  = document.getElementById('submit-btn');
+  const successEl  = document.getElementById('form-success');
+  const errorEl    = document.getElementById('form-error');
+
+  // Validation rules for required fields
+  const rules = [
+    { id: 'f-first',    errId: 'err-first',    msg: 'Please enter your first name.' },
+    { id: 'f-last',     errId: 'err-last',     msg: 'Please enter your last name.' },
+    { id: 'f-email',    errId: 'err-email',    msg: 'Please enter a valid email address.' },
+    { id: 'f-org',      errId: 'err-org',      msg: 'Please enter your organisation name.' },
+    { id: 'f-type',     errId: 'err-type',     msg: 'Please select your investor type.' },
+    { id: 'f-interest', errId: 'err-interest', msg: 'Please select your area of interest.' },
+  ];
+
+  function validateField(rule) {
+    const el  = document.getElementById(rule.id);
+    const err = document.getElementById(rule.errId);
+    if (!el || !err) return true;
+    const val   = el.value.trim();
+    let   valid = val !== '' && val !== 'undefined';
+    if (rule.id === 'f-email') valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+    if (!valid) {
+      el.classList.add('invalid');
+      err.textContent = rule.msg;
+      err.classList.add('visible');
+    } else {
+      el.classList.remove('invalid');
+      err.textContent = '';
+      err.classList.remove('visible');
+    }
+    return valid;
+  }
+
+  // Validate each field on blur (live feedback)
+  rules.forEach(rule => {
+    const el = document.getElementById(rule.id);
+    if (el) el.addEventListener('blur', () => validateField(rule));
+  });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    errorEl.style.display = 'none';
+
+    // Run all validations
+    const allValid = rules.map(r => validateField(r)).every(Boolean);
+    if (!allValid) {
+      // Scroll to first error
+      const firstInvalid = form.querySelector('.invalid');
+      if (firstInvalid) firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    // Guard: Formspree not yet configured
+    if (FORMSPREE_ID === 'YOUR_FORM_ID') {
+      errorEl.innerHTML = '<div style="font-size:13px;color:#f0a0a0;line-height:1.7;">⚠ The form is not yet connected. Please follow the setup note in the page source, or contact us directly at <strong>robert.cla
