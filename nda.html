@@ -433,6 +433,8 @@
       <input type="hidden" name="_replyto" id="replyto-field" value="">
       <input type="hidden" name="form_type" value="NDA Signature">
       <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <!-- Referral tracking — populated by JS below -->
+      <input type="hidden" name="referred_by" id="ref-input-nda" value="">
       <!-- Referral tracking -->
       <input type="hidden" name="referred_by" id="ref-field" value="">
       <textarea name="nda_agreement_text" style="display:none" readonly>NON-DISCLOSURE AGREEMENT
@@ -607,21 +609,12 @@ This Agreement constitutes the entire agreement between the parties regarding co
 
   // ── REFERRAL TRACKING ────────────────────────────────────────
   (function() {
-    const ref = new URLSearchParams(window.location.search).get('ref');
-    if (ref) {
-      // Store in sessionStorage so it persists if they navigate
-      sessionStorage.setItem('ref', ref);
-    }
-    const refVal = ref || sessionStorage.getItem('ref') || '';
-    if (refVal) {
-      document.querySelectorAll('form').forEach(form => {
-        const input = document.createElement('input');
-        input.type  = 'hidden';
-        input.name  = 'referred_by';
-        input.value = refVal;
-        form.appendChild(input);
-      });
-    }
+    var params = new URLSearchParams(window.location.search);
+    var ref = params.get('ref') || params.get('REF') || '';
+    if (ref) sessionStorage.setItem('portfolio_ref', ref);
+    var refVal = ref || sessionStorage.getItem('portfolio_ref') || '';
+    var inp = document.getElementById('ref-input-nda');
+    if (inp && refVal) inp.value = refVal;
   })();
   // ── SYNC REPLYTO WITH EMAIL ────────────────────
   const emailInput   = document.getElementById('s-email');

@@ -1351,6 +1351,8 @@
 
             <!-- Hidden honeypot field to block bots -->
             <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+            <!-- Referral tracking — populated by JS below -->
+            <input type="hidden" name="referred_by" id="ref-input-dr" value="">
             <!-- Referral tracking -->
             <input type="hidden" name="referred_by" id="ref-field" value="">
 
@@ -1438,21 +1440,13 @@
 
   // ── REFERRAL TRACKING ────────────────────────────────────────
   (function() {
-    const ref = new URLSearchParams(window.location.search).get('ref');
-    if (ref) {
-      // Store in sessionStorage so it persists if they navigate
-      sessionStorage.setItem('ref', ref);
-    }
-    const refVal = ref || sessionStorage.getItem('ref') || '';
-    if (refVal) {
-      document.querySelectorAll('form').forEach(form => {
-        const input = document.createElement('input');
-        input.type  = 'hidden';
-        input.name  = 'referred_by';
-        input.value = refVal;
-        form.appendChild(input);
-      });
-    }
+    var params = new URLSearchParams(window.location.search);
+    var ref = params.get('ref') || params.get('REF') || '';
+    if (ref) sessionStorage.setItem('portfolio_ref', ref);
+    var refVal = ref || sessionStorage.getItem('portfolio_ref') || '';
+    // Set value on the static hidden input already in the form
+    var inp = document.getElementById('ref-input-dr');
+    if (inp && refVal) inp.value = refVal;
   })();
   // ── SCROLL FADE ─────────────────────────────────────────
   const observer = new IntersectionObserver((entries) => {
