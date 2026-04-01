@@ -1351,6 +1351,8 @@
 
             <!-- Hidden honeypot field to block bots -->
             <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+            <!-- Referral tracking -->
+            <input type="hidden" name="referred_by" id="ref-field" value="">
 
             <button type="submit" id="submit-btn" class="btn-primary" style="width:100%; border:none; cursor:pointer; font-size:13px; display:flex; align-items:center; justify-content:center; gap:10px;">
               <span id="btn-text">Submit Access Request</span>
@@ -1416,6 +1418,42 @@
 
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // ── REFERRAL TRACKING ───────────────────────────────────
+  (function() {
+    var ref = new URLSearchParams(window.location.search).get('ref');
+    if (ref) {
+      var el = document.getElementById('ref-field');
+      if (el) el.value = ref.toLowerCase().trim();
+      // Persist in sessionStorage so it survives any soft navigation
+      sessionStorage.setItem('ref', ref.toLowerCase().trim());
+    } else {
+      var stored = sessionStorage.getItem('ref');
+      if (stored) {
+        var el = document.getElementById('ref-field');
+        if (el) el.value = stored;
+      }
+    }
+  })();
+
+
+  // ── REFERRAL TRACKING ────────────────────────────────────────
+  (function() {
+    const ref = new URLSearchParams(window.location.search).get('ref');
+    if (ref) {
+      // Store in sessionStorage so it persists if they navigate
+      sessionStorage.setItem('ref', ref);
+    }
+    const refVal = ref || sessionStorage.getItem('ref') || '';
+    if (refVal) {
+      document.querySelectorAll('form').forEach(form => {
+        const input = document.createElement('input');
+        input.type  = 'hidden';
+        input.name  = 'referred_by';
+        input.value = refVal;
+        form.appendChild(input);
+      });
+    }
+  })();
   // ── SCROLL FADE ─────────────────────────────────────────
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });

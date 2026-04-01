@@ -433,6 +433,8 @@
       <input type="hidden" name="_replyto" id="replyto-field" value="">
       <input type="hidden" name="form_type" value="NDA Signature">
       <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <!-- Referral tracking -->
+      <input type="hidden" name="referred_by" id="ref-field" value="">
       <textarea name="nda_agreement_text" style="display:none" readonly>NON-DISCLOSURE AGREEMENT
 Vitae Investments Ltd — Social Housing Property Portfolio Sale 2026
 
@@ -586,6 +588,41 @@ This Agreement constitutes the entire agreement between the parties regarding co
 
   // Timestamp handled by inline script above
 
+  // ── REFERRAL TRACKING ───────────────────────────────────
+  (function() {
+    var ref = new URLSearchParams(window.location.search).get('ref');
+    if (ref) {
+      var el = document.getElementById('ref-field');
+      if (el) el.value = ref.toLowerCase().trim();
+      sessionStorage.setItem('ref', ref.toLowerCase().trim());
+    } else {
+      var stored = sessionStorage.getItem('ref');
+      if (stored) {
+        var el = document.getElementById('ref-field');
+        if (el) el.value = stored;
+      }
+    }
+  })();
+
+
+  // ── REFERRAL TRACKING ────────────────────────────────────────
+  (function() {
+    const ref = new URLSearchParams(window.location.search).get('ref');
+    if (ref) {
+      // Store in sessionStorage so it persists if they navigate
+      sessionStorage.setItem('ref', ref);
+    }
+    const refVal = ref || sessionStorage.getItem('ref') || '';
+    if (refVal) {
+      document.querySelectorAll('form').forEach(form => {
+        const input = document.createElement('input');
+        input.type  = 'hidden';
+        input.name  = 'referred_by';
+        input.value = refVal;
+        form.appendChild(input);
+      });
+    }
+  })();
   // ── SYNC REPLYTO WITH EMAIL ────────────────────
   const emailInput   = document.getElementById('s-email');
   const replytoField = document.getElementById('replyto-field');
