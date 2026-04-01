@@ -1555,10 +1555,11 @@
         successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
       } else {
         const json = await res.json().catch(() => ({}));
-        throw new Error(json.error || 'Submission failed');
+        const reason = json.error || json.errors?.map(e=>e.message).join(', ') || `HTTP ${res.status}`;
+        throw new Error(reason);
       }
     } catch (err) {
-      errorEl.innerHTML = '<div style="font-size:13px;color:#f0a0a0;line-height:1.7;">Something went wrong — please try again or email us directly at <strong>robert.clare@innovationcapitalteam.com</strong></div>';
+      errorEl.innerHTML = `<div style="font-size:13px;color:#f0a0a0;line-height:1.7;">Something went wrong: <strong>${err.message}</strong><br>Please try again or email <strong>robert.clare@innovationcapitalteam.com</strong></div>`;
       errorEl.style.display = 'block';
       submitBtn.disabled = false;
       btnText.textContent = 'Submit Access Request';
