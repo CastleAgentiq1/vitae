@@ -607,13 +607,19 @@ This Agreement constitutes the entire agreement between the parties regarding co
 
 
   // ── REFERRAL TRACKING ────────────────────────────────────────
+  function getRef() {
+    try {
+      var p = new URLSearchParams(window.location.search);
+      var r = p.get('ref') || p.get('REF') || '';
+      if (r) sessionStorage.setItem('portfolio_ref', r);
+      return r || sessionStorage.getItem('portfolio_ref') || '';
+    } catch(e) { return ''; }
+  }
+  // Set on page load
   (function() {
-    var params = new URLSearchParams(window.location.search);
-    var ref = params.get('ref') || params.get('REF') || '';
-    if (ref) sessionStorage.setItem('portfolio_ref', ref);
-    var refVal = ref || sessionStorage.getItem('portfolio_ref') || '';
-    var inp = document.getElementById('ref-input-nda');
-    if (inp && refVal) inp.value = refVal;
+    var v = getRef();
+    var el = document.getElementById('ref-input-nda');
+    if (el && v) el.value = v;
   })();
   // ── SYNC REPLYTO WITH EMAIL ────────────────────
   const emailInput   = document.getElementById('s-email');
@@ -680,6 +686,13 @@ This Agreement constitutes the entire agreement between the parties regarding co
       return;
     }
 
+    // Set ref at submit time
+    (function() {
+      var v = getRef();
+      var el = document.getElementById('ref-input-nda');
+      if (el) el.value = v || '';
+    })();
+
     // Loading state
     const btn = document.getElementById('sign-btn');
     const btnText = document.getElementById('sign-btn-text');
@@ -700,4 +713,24 @@ This Agreement constitutes the entire agreement between the parties regarding co
         // Show success
         const firstName = document.getElementById('s-first').value.trim();
         const lastName  = document.getElementById('s-last').value.trim();
-        document.getElementById('success-name').textContent = `${firstName} ${lastName}`
+        document.getElementById('success-name').textContent = `${firstName} ${lastName}`;
+        document.getElementById('success-timestamp').textContent = formatDate(submitTime);
+        document.getElementById('signing-box').style.display = 'none';
+        const successEl = document.getElementById('sign-success');
+        successEl.style.display = 'block';
+        successEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch (err) {
+      const errEl = document.getElementById('sign-error');
+      errEl.innerHTML = 'Something went wrong — please try again or contact us directly at <strong>robert.clare@innovationcapitalteam.com</strong>';
+      errEl.style.display = 'block';
+      btn.disabled = false;
+      btnText.textContent = 'Sign & Submit Agreement';
+      spinner.style.display = 'none';
+    }
+  });
+</script>
+</body>
+</html>

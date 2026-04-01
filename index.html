@@ -1354,7 +1354,6 @@
             <!-- Referral tracking — populated by JS below -->
             <input type="hidden" name="referred_by" id="ref-input-dr" value="">
             <!-- Referral tracking -->
-            <input type="hidden" name="referred_by" id="ref-field" value="">
 
             <button type="submit" id="submit-btn" class="btn-primary" style="width:100%; border:none; cursor:pointer; font-size:13px; display:flex; align-items:center; justify-content:center; gap:10px;">
               <span id="btn-text">Submit Access Request</span>
@@ -1439,14 +1438,19 @@
 
 
   // ── REFERRAL TRACKING ────────────────────────────────────────
+  function getRef() {
+    try {
+      var p = new URLSearchParams(window.location.search);
+      var r = p.get('ref') || p.get('REF') || '';
+      if (r) sessionStorage.setItem('portfolio_ref', r);
+      return r || sessionStorage.getItem('portfolio_ref') || '';
+    } catch(e) { return ''; }
+  }
+  // Set on page load
   (function() {
-    var params = new URLSearchParams(window.location.search);
-    var ref = params.get('ref') || params.get('REF') || '';
-    if (ref) sessionStorage.setItem('portfolio_ref', ref);
-    var refVal = ref || sessionStorage.getItem('portfolio_ref') || '';
-    // Set value on the static hidden input already in the form
-    var inp = document.getElementById('ref-input-dr');
-    if (inp && refVal) inp.value = refVal;
+    var v = getRef();
+    var el = document.getElementById('ref-input-dr');
+    if (el && v) el.value = v;
   })();
   // ── SCROLL FADE ─────────────────────────────────────────
   const observer = new IntersectionObserver((entries) => {
@@ -1526,6 +1530,41 @@
       return;
     }
 
-    // Guard: Formspree not yet configured
-    if (FORMSPREE_ID === 'YOUR_FORM_ID') {
-      errorEl.innerHTML = '<div style="font-size:13px;color:#f0a0a0;line-height:1.7;">⚠ The form is not yet connected. Please follow the setup note in the page source, or contact us directly at <strong>robert.cla
+    // Set ref at submit time
+    (function() {
+      var v = getRef();
+      var el = document.getElementById('ref-input-dr');
+      if (el) el.value = v || '';
+    })();
+
+    // Loading state
+    submitBtn.disabled = true;
+    btnText.textContent = 'Sending…';
+    btnSpinner.style.display = 'inline-block';
+
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method:  'POST',
+        body:    new FormData(form),
+        headers: { Accept: 'application/json' }
+      });
+
+      if (res.ok) {
+        form.style.display = 'none';
+        successEl.style.display = 'block';
+        successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        const json = await res.json().catch(() => ({}));
+        throw new Error(json.error || 'Submission failed');
+      }
+    } catch (err) {
+      errorEl.innerHTML = '<div style="font-size:13px;color:#f0a0a0;line-height:1.7;">Something went wrong — please try again or email us directly at <strong>robert.clare@innovationcapitalteam.com</strong></div>';
+      errorEl.style.display = 'block';
+      submitBtn.disabled = false;
+      btnText.textContent = 'Submit Access Request';
+      btnSpinner.style.display = 'none';
+    }
+  });
+</script>
+</body>
+</html>
